@@ -19,11 +19,41 @@
           <md-icon class="mdi mdi-plus-circle"></md-icon>
           New Classified
         </md-button>
+
+        <md-button ng-click="showFilters=true">
+          <md-icon class="mdi mdi-magnify"></md-icon>
+          Filters
+        </md-button>
       </div>
     </md-toolbar>
 
+    <div class="filters" layout="row" layout-align="center" ng-show="showFilters">
+
+      <md-input-container>
+        <label>Enter Search Term</label>
+        <input type="text" ng-model="classifiedsFilter" />
+      </md-input-container>
+
+      <md-input-container>
+        <label>Category</label>
+        <md-select ng-model="category">
+          <md-option ng-repeat="category in categories" value="{{category}}">
+            {{category}}
+          </md-option>
+        </md-select>
+      </md-input-container>
+
+      <md-input-container >
+        <md-button class="md-warn" id='filter-button'
+                    ng-click="classifiedsFilter = ''; category = ''">
+          Clear
+        </md-button>
+      </md-input-container>
+
+    </div>
+
     <md-sidenav class="md-sidenav-left"
-                md-whiteframe="4"
+                md-whiteframe="2"
                 md-component-id="left">
       <md-toolbar>
         <h1 class="md-toolbar-tools">Add a Classified</h1>
@@ -67,7 +97,9 @@
 
     <md-content class="md-padding" layout="row" layout-wrap>
 
-      <md-card ng-repeat="classified in classifieds" flex="30">
+      <md-card ng-repeat="classified in classifieds
+                          | filter: classifiedsFilter
+                          |filter: category" flex="30">
         <img ng-src="{{classified.image}}" />
         <md-card-content>
           <div class="classified-info" ng-show="!showContact">
@@ -109,6 +141,7 @@
 
 
     <!-- JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.4/lodash.min.js"></script>
     <script src="node_modules/angular/angular.js"></script>
     <script src="node_modules/angular-animate/angular-animate.js"></script>
     <script src="node_modules/angular-aria/angular-aria.js"></script>
