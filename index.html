@@ -54,8 +54,11 @@
           </md-input-container>
           <br />
           <md-button class="md-primary"
+                    ng-if="!editing"
                     ng-click="saveClassified(classified)">Save</md-button>
-          <md-button class="md-primary">Save Edit</md-button>
+          <md-button ng-if="editing"
+                    ng-click="saveEdit()"
+                    class="md-primary">Save Edit</md-button>
           <md-button class="md-warn"
                     ng-click="closeSidebar()">Cancel</md-button>
         </form>
@@ -94,8 +97,10 @@
           </div>
           <div class="classified-admin" ng-if="showAdmin">
             <h3>Admin</h3>
-            <md-button class="md-primary">Edit</md-button>
-            <md-button class="md-warn">Delete</md-button>
+            <md-button ng-click="editClassified(classified)"
+                      class="md-primary">Edit</md-button>
+            <md-button ng-click="deleteClassified($event, classified)"
+                      class="md-warn">Delete</md-button>
           </div>
         </md-card-content>
       </md-card>
