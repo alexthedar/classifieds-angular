@@ -4,7 +4,7 @@
 
   angular
     .module("classifieds")
-    .controller("classifiedsCTRL", function ($http, $state, classifiedsFactory, $mdSidenav, $mdToast, $mdDialog) {
+    .controller("classifiedsCTRL", function ($scope, $http, $state, classifiedsFactory, $mdSidenav, $mdToast, $mdDialog) {
 
       // fake contact
       var contact = {
@@ -26,6 +26,12 @@
       vm.openSidebar = openSidebar
       vm.saveClassified = saveClassified
 
+      $scope.$on('newClassified', function(event, classified){
+        console.log('on')
+        classified.id = vm.classifieds.length+1
+        vm.classifieds.push(classified)
+        showToast('Classified Saved')
+      })
 
 
       // READ

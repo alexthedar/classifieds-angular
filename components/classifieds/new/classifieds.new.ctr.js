@@ -7,11 +7,13 @@
 
       var vm = this
       vm.closeSidebar = closeSidebar
+      vm.saveClassified = saveClassified
 
       $timeout(function(){
         $mdSidenav('left').open()
       })
 
+      // sidebarnav watcher
       $scope.$watch('vm.sidenavOpen', function(sidenav){
         if(sidenav===false){
           $mdSidenav('left')
@@ -24,5 +26,20 @@
 
       function closeSidebar(){ vm.sidenavOpen = false }
 
+      //Save emitter
+      function saveClassified(classified){
+        if(classified){
+          console.log('emit')
+
+          // fake contact
+          classified.contact = {
+            name: "test test",
+            phone: "555-555-5555",
+            email: "test@test.com"
+          }
+          $scope.$emit('newClassified', classified)
+          vm.sidenavOpen = false
+        }
+      }
     })
 })();
