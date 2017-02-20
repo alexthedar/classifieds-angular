@@ -6,12 +6,6 @@ angular
       .primaryPalette('teal')
       .accentPalette('orange')
 
-      // var classifiedsState = {
-      //   name: 'classifieds',
-      //   url: '/classifieds',
-      //   templateUrl: './components/classifieds/classifieds.tpl.html',
-      //   controller: 'classifiedsCTRL as vm'
-      // }
   $stateProvider.state('classifieds', {
                           url: '/classifieds',
                           templateUrl: './components/classifieds/classifieds.tpl.html',
@@ -33,5 +27,4 @@ angular
                           templateUrl: './components/classifieds/classifieds.tpl.html',
                           controller: 'classifiedsCTRL as vm'
                         })
-
   })

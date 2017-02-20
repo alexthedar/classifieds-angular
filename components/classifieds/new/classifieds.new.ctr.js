@@ -24,15 +24,7 @@
             })
         }
       })
-      // $scope.$watch('sidenavOpen', function(sidenavOpen) {
-      //   if(sidenavOpen === false) {
-      //     $mdSidenav('left')
-      //       .close()
-      //       .then(function() {
-      //         $state.go('classifieds');
-      //     });
-      //   }
-      // });
+
 
       function closeSidebar(){ vm.sidenavOpen = false }
 
