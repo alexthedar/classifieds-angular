@@ -4,7 +4,10 @@
   "description": "classifieds site built for practice using angular 1.x and angular-material design",
   "main": "index.js",
   "scripts": {
-    "start": "http-server"
+    "dev": "http-server",
+    "build": "npm install",
+    "postinstall": "npm install express",
+    "start": "node server.js"
   },
   "keywords": ["angular","material","firebase", "alexthedar"],
   "author": "alexthedar",
