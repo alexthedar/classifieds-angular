@@ -26,3 +26,4 @@ TODO:
 
 - add auth on front end and backend
 - add login and admin sections
+- sidenav does not close when click outside

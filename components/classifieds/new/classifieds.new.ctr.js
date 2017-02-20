@@ -9,13 +9,14 @@
       vm.closeSidebar = closeSidebar
       vm.saveClassified = saveClassified
 
+
       $timeout(function(){
         $mdSidenav('left').open()
       })
 
       // sidebarnav watcher
-      $scope.$watch('vm.sidenavOpen', function(sidenav){
-        if(sidenav===false){
+      $scope.$watch('vm.sidenavOpen', function(sidenavOpen){
+        if(sidenavOpen === false){
           $mdSidenav('left')
             .close()
             .then(function(){
@@ -23,6 +24,15 @@
             })
         }
       })
+      // $scope.$watch('sidenavOpen', function(sidenavOpen) {
+      //   if(sidenavOpen === false) {
+      //     $mdSidenav('left')
+      //       .close()
+      //       .then(function() {
+      //         $state.go('classifieds');
+      //     });
+      //   }
+      // });
 
       function closeSidebar(){ vm.sidenavOpen = false }
 
