@@ -20,11 +20,12 @@
       vm.openSidebar = openSidebar
       vm.saveClassified = saveClassified
 
+      // new reciever
       $scope.$on('newClassified', function(event, classified){
         vm.classifieds.$add(classified)
         showToast('Classified Saved')
       })
-
+      // edit reciever
       $scope.$on('editSaved', function(event, message){
         showToast(message)
       })
