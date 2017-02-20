@@ -7,7 +7,9 @@
         return {
           templateUrl: 'components/classifieds/card/classified-card.tpl.html',
           scope: {
-            classifieds: "=classifieds"
+            classifieds: "=classifieds",
+            classifiedsFilter: "=classifiedsFilter",
+            category: "=category"
           },
           controller: classifiedCardCTRL,
           controllerAs: "vm"
