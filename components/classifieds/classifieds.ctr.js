@@ -6,12 +6,6 @@
     .module("classifieds")
     .controller("classifiedsCTRL", function ($scope, $http, $state, classifiedsFactory, $mdSidenav, $mdToast, $mdDialog) {
 
-      // fake contact
-      var contact = {
-        name: "test test",
-        phone: "555-555-5555",
-        email: "test@test.com"
-      }
 
       var vm = this
 
@@ -27,20 +21,20 @@
       vm.saveClassified = saveClassified
 
       $scope.$on('newClassified', function(event, classified){
-        console.log('on')
-        classified.id = vm.classifieds.length+1
-        vm.classifieds.push(classified)
+        vm.classifieds.$add(classified)
         showToast('Classified Saved')
+      })
+
+      $scope.$on('editSaved', function(event, message){
+        showToast(message)
       })
 
 
       // READ
-      classifiedsFactory.getClassifieds()
-        .then(function(classifieds) {
-          vm.classifieds = classifieds.data;
-          vm.categories = getCategories(vm.classifieds)
-        })
-
+      vm.classifieds = classifiedsFactory.ref
+      vm.classifieds.$loaded().then(function(classifieds){
+        vm.categories = getCategories(classifieds)
+      })
 
       //CREATE
       function saveClassified (classified) {
@@ -55,11 +49,9 @@
 
       // UPDATE
       function editClassified (classified){
-        vm.editing = true
-        openSidebar()
-        vm.classified = classified
-        console.log('here', classified)
-        console.log('vm', vm.classified)
+        $state.go('classifieds.edit', {
+          id: classified.$id
+        })
       }
 
       function saveEdit () {
@@ -78,8 +70,8 @@
                       .targetEvent(event)
 
         $mdDialog.show(confirm).then(function(){
-          var index = vm.classifieds.indexOf(classified)
-          vm.classifieds.splice(index, 1)
+          vm.classifieds.$remove(classified)
+          showToast("Classified Deleted")
         }, function(){  })
       }
 

@@ -6,7 +6,7 @@
   "scripts": {
     "start": "http-server"
   },
-  "keywords": ["angular","material","alexthedar"],
+  "keywords": ["angular","material","firebase", "alexthedar"],
   "author": "alexthedar",
   "license": "ISC",
   "dependencies": {

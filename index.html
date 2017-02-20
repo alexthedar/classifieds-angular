@@ -21,20 +21,43 @@
     <ui-view></ui-view>
 
     <!-- JS -->
-    <!-- CDN -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.4/lodash.min.js"></script>
-
+    <script src="https://www.gstatic.com/firebasejs/3.6.9/firebase.js"></script>
+    <script>
+    // Initialize Firebase
+    var config = {
+      apiKey: "AIzaSyARdBlGJ63QINMPCk7B87P86g2R6zV_gAw",
+      authDomain: "classified-4ece8.firebaseapp.com",
+      databaseURL: "https://classified-4ece8.firebaseio.com",
+      storageBucket: "",
+      messagingSenderId: "273839505795"
+    };
+    firebase.initializeApp(config);
+    </script>
+    
     <!-- Files -->
     <script src="node_modules/angular/angular.js"></script>
     <script src="node_modules/angular-animate/angular-animate.js"></script>
     <script src="node_modules/angular-aria/angular-aria.js"></script>
     <script src="node_modules/angular-material/angular-material.js"></script>
     <script src="node_modules/angular-ui-router/release/angular-ui-router.js"></script>
+
+    <!-- CDN -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.4/lodash.min.js"></script>
+    <!-- Firebase -->
+    <!-- <script src="https://www.gstatic.com/firebasejs/3.6.6/firebase.js"></script> -->
+    <!-- AngularFire -->
+    <script src="https://cdn.firebase.com/libs/angularfire/2.3.0/angularfire.min.js"></script>
+    <!-- End CDN -->
+    <!-- END JS -->
+
+
     <script src="scripts/app.js"></script>
     <script src="components/classifieds/classifieds.ctr.js"></script>
     <script src="components/classifieds/classifieds.fac.js"></script>
     <script src="components/classifieds/new/classifieds.new.ctr.js"></script>
     <script src="components/classifieds/edit/classifieds.edit.ctr.js"></script>
-    <!-- End JS -->
+    <!-- End Files -->
+
+
   </body>
 </html>
