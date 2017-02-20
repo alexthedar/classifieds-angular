@@ -4,19 +4,25 @@
 
 [Click Here For Live Site](link)
 
-> A classifieds site with Angular-Material design and full CRUD capability using Firebase.
+> A classifieds site built in Angular 1.x and Angular-Material design with full CRUD capability and persistent data via Firebase.
 
+I built this to practice Angular 1.x.
 
 Install and Run:
 
 
-```bash
-git clone [repo]
+``` bash
+git clone https://github.com/alexthedar/classifieds-angular.git
 
-cd [directory]
+cd classifieds-angular
 
 npm install
 
 npm run start
 
 ```
+
+TODO:
+
+- add auth on front end and backend
+- add login and admin sections

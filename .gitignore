@@ -91,3 +91,9 @@ Temporary Items
 .apdisk
 
 # End of https://www.gitignore.io/api/osx,node
+
+#just in case
+/node_modules
+npm-debug.log
+.DS_Store
+/*.env
